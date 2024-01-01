@@ -1,0 +1,30 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+<form id="form1" name="form1" method="post" action="/add_batch_post">
+  <table width="611" height="270" border="0" style="border: solid">
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;FROM</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required/></td>
+        <td>TO</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield2" id="textfield"required /></td>
+    </tr>
+
+    <tr>
+      <td colspan="4" align="center">COURSE
+      <label for="select2"></label>
+        <select  name="select2" id="select2" required>
+            <option >select </option>
+            {% for i in data %}
+            <option value="{{ i['id'] }}" >{{ i['course'] }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+
+    <tr>
+      <td colspan="4"><CENTER><input type="submit" name="button" id="button" value="ADD" /></center></td>
+    </tr>
+  </table>
+</form></center>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_course_college_search">
+  <table width="800" border="0">
+    <tr>
+      <td colspan="6" height="58">COLLEGE WISE
+      <label for="select"></label>
+        <select name="select" id="select">
+            <option>select</option>
+            {% for i in data1 %}
+            <option value="{{ i['login_id'] }}">{{ i['college'] }}</option>
+            {% endfor %}
+
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="6" height="58"><center><input type="submit" name="button" id="button" value="SEARCH" /></center></td>
+    </tr>
+    <tr bgcolor="#5f9ea0">
+      <td height="54" width="48">SL NO</td>
+      <td width="8">COLLEGE</td>
+      <td width="26">COURSE</td>
+      <td width="26">DEPARTMENT</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="58">{{ loop.index }}&nbsp;</td>
+      <td>{{ i['college'] }}&nbsp;</td>
+      <td>{{ i['course'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['department'] }}</td>
+      <td width="26"><a href="/edit_course_college/{{ i['id'] }}">EDIT</a></td>
+      <td width="30"><a href="/delete_college_course/{{ i['id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

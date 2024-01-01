@@ -1,0 +1,99 @@
+{% extends"index-4.html" %}
+{% block body %}
+<center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/st_view_studentinfo_post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="1600" border="0">
+    <!--<tr>
+      <td colspan="15">COLLEGE
+        <label for="select"></label>
+        <select name="select" id="select">
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="15">SEMESTER
+        <label for="select2"></label>
+        <select name="select2" id="select2">
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="15">DEPARTMENT
+        <label for="select5"></label>
+        <select name="select5" id="select5">
+      </select></td>
+    </tr>-->
+    <tr>
+      <td height="54" colspan="5">COURSE
+        <label for="select4"></label>
+        <select name="select4" id="select4">
+            <option>select</option>
+            {% for i in course %}
+            <option value="{{ i['id'] }}">{{ i['course'] }}</option>
+            {% endfor %}
+      </select></td>
+
+      <td colspan="10" height="54">BATCH
+        <label for="select3"></label>
+        <select name="select3" id="select3">
+            <option>select</option>
+            {% for i in batch %}
+            <option value="{{ i['id'] }}">{{ i['from_year'] }}-{{ i['to_year'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+
+    <tr>
+      <td colspan="15" height="54"><input type="submit" name="button" id="button" value="SEARCH" /></td>
+    </tr>
+    <tr>
+      <td colspan="15">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="54">SL NO</td>
+      <td>NAME</td>
+          <td width="90">IMAGE</td>
+      <td>REGNO</td>
+      <td>DOB</td>
+      <td>GENDER</td>
+      <td>HOUSE NAME</td>
+      <td>POST</td>
+      <td>PLACE</td>
+      <td>PIN CODE</td>
+      <td>COURSE</td>
+      <td>BATCH</td>
+      <td>ADMISSION DATE</td>
+      <td>MAIL ID</td>
+      <td>PHONE NUMBER</td>
+    </tr>
+  {% for i in data %}
+    <tr>
+      <td height="54">{{ loop.index }}&nbsp;</td>
+      <td>{{ i['name'] }}&nbsp;</td>
+         <td><img src="/static/student_pics/{{ i['image'] }}" width="90" height="90"></td>
+      <td>&nbsp;{{ i['regno'] }}</td>
+      <td>{{ i['dob'] }}&nbsp;</td>
+      <td>{{ i['gender'] }}&nbsp;</td>
+      <td>{{ i['house_name'] }}&nbsp;</td>
+      <td>{{ i['post'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['place'] }}</td>
+      <td>&nbsp;{{ i['pin'] }}</td>
+      <td>{{ i['course'] }}&nbsp;</td>
+      <td>{{ i['from_year'] }}-{{ i['to_year'] }}&nbsp;</td>
+      <td>{{ i['admission_date'] }}&nbsp;</td>
+      <td>{{ i['mail_id'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['phone_no'] }}</td>
+
+    </tr>
+  {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+</center>{% endblock %}

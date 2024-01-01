@@ -1,0 +1,58 @@
+{% extends"index-2.html" %}
+{% block body %}<br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="600"  height="600" border="0">
+    <tr>
+      <td width="175">NAME</td>
+      <td width="58">{{ data['U_name'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>HOUSE NAME</td>
+      <td>{{ data['house_name'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>{{ data['post'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td>{{ data['place'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>PIN CODE</td>
+      <td>{{ data['pin'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td>&nbsp;{{ data['dob'] }}</td>
+    </tr>
+    <tr>
+      <td>GENDER</td>
+      <td>{{ data['gender'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>DESIGNATION</td>
+      <td>{{ data['designation'] }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>MAIL ID</td>
+      <td>&nbsp;{{ data['mail_id'] }}</td>
+    </tr>
+    <tr>
+      <td>PHONE NO</td>
+      <td>&nbsp;{{ data['phone_number'] }}</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

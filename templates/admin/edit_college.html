@@ -1,0 +1,65 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+<form id="form1" name="form1" method="post" action="/edit_college_post">
+<input type="hidden" name="id" value="{{ data['login_id'] }}"/>
+  <table width="611" height="593" border="0" style="background-color: #9F9F9F;border: solid">
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;COLLEGE</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" value="{{ data['college'] }}" id="textfield"  required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;STATE</td>
+      <td><label for="select"></label>
+        <select name="select" value="{{data['state'] }}" id="select">
+              <option value="kerala"{% if data['state']=="kerala" %}selected="selected"  {% endif %}>kerala</option>
+            <option value="thamil nadu">thamil nadu</option>
+            <option value="karnadka">karnadaka</option>
+            <option value="up">up</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;DISTRICT</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2">
+             <option value="malappuram"{% if data['district']=="malappuram" %}selected="selected"{% endif %}>malappuram</option>
+            <option value="kozhikode">kozhikode</option>
+            <option value="vayanad">vayanad</option>
+            <option value="alapuzha">alapuzha</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PLACE</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" value="{{ data['place'] }}" id="textfield2" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;POST</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" value="{{ data['post'] }}" id="textfield3" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PIN CODE</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" value="{{data['pincode'] }}" id="textfield4" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;MAIL ID</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" value="{{ data['mail_id'] }}" id="textfield5" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PHONE NO</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" value="{{ data['phone_no'] }}" id="textfield6" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><CENTER><input type="submit" name="button" id="button" value="UPDATE" /></center></td>
+    </tr>
+  </table>
+</form>
+
+</center>
+{% endblock %}

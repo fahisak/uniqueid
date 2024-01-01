@@ -1,0 +1,80 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_subject_post">
+  <table width="900" border="0">
+
+    <tr>
+      <td colspan="8" height="58">COURSE
+        <label  for="select2"></label>
+
+        <select name="select2" id="select2">
+           <option>select</option>
+            {% for i in data1 %}
+            <option value="{{ i['id'] }}">{{ i['course'] }}</option>
+            {% endfor%}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="8" height="58">SEMESTER
+        <label for="select3"></label>
+        <select name="select3" id="select3">
+             <option>select</option>
+            <option value="1">1</option>
+             <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="8" height="58"><CENTER><input type="submit" name="button" id="button" value="SEARCH" /></center></td>
+    </tr>
+
+{#  </table>#}
+
+
+
+{#     <table width="200" border="1">#}
+    <tr bgcolor="#5f9ea0">
+      <td height="54">SL NO</td>
+      <td>SUBJECT</td>
+      <td>SUBJECT CODE</td>
+      <td>SEMESTER</td>
+      <td>COURSE</td>
+      <td>DEPARTMENT</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="60">{{ loop.index }}&nbsp;</td>
+      <td>&nbsp;{{i['subject']  }}</td>
+      <td>{{ i['subject_code'] }}&nbsp;</td>
+      <td>{{ i['semester'] }}&nbsp;</td>
+      <td>{{ i['course'] }}&nbsp;</td>
+      <td>{{ i['department'] }}&nbsp;</td>
+      <td><a href="/ad_edit_subject/{{ i['id'] }}">EDIT</a></td>
+      <td><a href="/delete_subject/{{ i['id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+
+
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

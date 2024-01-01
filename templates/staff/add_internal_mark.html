@@ -1,0 +1,199 @@
+{% extends"index-4.html" %}
+{% block body %}<br><br><br>
+<center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+            </script>
+    <script>
+    $(document).ready(function () {
+
+        $("#select4").change(function () {
+            res1 = $(this).val();
+            res2 = $("#select3").val();
+
+            $.ajax({
+                url: '/internal_mark_post',
+                type: 'post',
+                data: {sem: res1,cid:res2},
+                success :function (res) {
+                    var len=res.length;
+
+
+                    if(res.length==0)
+                    {
+{#                        $("#r1").html("no item found")#}
+{#                        $("#abc").text("");#}
+{#                         $("#select5").append('<select name="select5" id="select5">')#}
+{##}
+{#                      #}
+{#                        $("#select5").append("</select>")#}
+                    }
+                    else {
+
+
+{#                        $("#select5").option("");#}
+{#                        $("#r1").text("");#}
+                        $("#select5").append('<select name="select5" id="select5">')
+
+                        for (i = 0; i <= len; i++) {
+                            var ind=i+1;
+                            var id = res[i]["id"];
+                            var subject = res[i]["subject"];
+                            $("#select5").append('<option value="'+id+'">'+subject+'</option>')
+
+                        }
+                        $("#select5").append("</select>")
+                    }
+                },
+                error:function (error) {
+
+                }
+
+
+
+            });
+
+        });
+    });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+
+        $("#select3").change(function () {
+            res1 = $(this).val();
+            //alert(res1)
+            //res2 = $("#select3").val();
+
+            $.ajax({
+                url: '/internal_mark_post1',
+                type: 'post',
+                data: {cid:res1},
+                success :function (res) {
+                    var len=res.length;
+
+
+                    if(res.length==0)
+                    {
+                        $("#r1").html("no item found")
+                        $("#abc").text("");
+                    }
+                    else {
+
+
+                        $("#abc").text("");
+                        $("#r1").text("");
+                        $("#select2").append('<select name="select2" id="select2">')
+
+                        for (i = 0; i <= len; i++) {
+                            var ind=i+1;
+                            var id = res[i]["id"]
+                            var batch = res[i]["from_year"]
+                            var batcht=res[i]["to_year"]
+                            $("#select2").append('<option value="'+id+'">'+batch+'-'+batcht+'</option>')
+
+                        }
+                        $("#select2").append("</select>")
+                    }
+                },
+                error:function (error) {
+
+                }
+
+
+
+            });
+
+        });
+    });
+    </script>
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/internal_mark">
+{#<input type="hidden"   name="clgid" value="{{ clg['login_id'] }}" >#}
+  <table border="0">
+    <tr>
+        <td>COLLEGE-
+     {{ clg['college'] }}</td>
+      </tr></table><br>
+   <table width="600" height="400" border="1">
+
+    <tr>
+      <td colspan="5">COURSE
+        <label for="select3"></label>
+        <select name="select3" id="select3">
+            <option>select</option>
+            {% for i in course %}
+            <option value="{{ i['id'] }}">{{ i['course'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+  <tr>
+      <td colspan="5">SEMESTER
+        <label for="select4"></label>
+        <select name="select4" id="select4">
+            <option>select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+      </select></td>
+    </tr>
+
+  <tr>
+      <td colspan="5">SUBJECT
+        <label for="select5"></label>
+        <select name="select5" id="select5">
+            <option>select</option>
+      </select></td>
+    </tr>
+
+  <tr>
+      <td colspan="5">BATCH
+        <label for="select2"></label>
+        <select name="select2" id="select2">
+            <option>select</option>
+
+      </select></td>
+    </tr>
+
+    <tr>
+      <td colspan="5" height="50"><CENTER><input type="submit" name="button" id="button" value="ADD" /></CENTER></td>
+    </tr>
+    <tr>
+      <td colspan="5" height="50">&nbsp;</td>
+    </tr>
+     {% for i in data %}
+    <tr>
+      <td height="50">{{ loop.index }}&nbsp;</td>
+      <td>&nbsp;{{ i['name'] }}</td>
+
+       <td>{{ i['regno'] }}&nbsp;</td>
+        <input type="hidden" name="sid" value="{{ i['sid'] }}" />
+        <td colspan="2"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td colspan="5" height="50"><CENTER><input type="submit" name="button" id="button" value="UPLOADMARK" /></CENTER></td>
+    </tr>
+  </table>
+<input type="hidden" name="subid" value="{{sub['subid']}}"/>
+</form>
+</body>
+</html>
+</center>{% endblock %}

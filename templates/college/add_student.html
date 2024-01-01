@@ -1,0 +1,185 @@
+{% extends"index-3.html" %}
+{% block body %}<br><br><br>
+<center><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+            </script>
+
+     <script>
+    $(document).ready(function () {
+
+        $("#select3").change(function () {
+            res1 = $(this).val();
+            alert(res1)
+            //res2 = $("#select3").val();
+
+            $.ajax({
+                url: '/student_add',
+                type: 'post',
+                data: {cid:res1},
+                success :function (res) {
+                    var len=res.length;
+
+
+                    if(res.length==0)
+                    {
+                        $("#r1").html("no item found")
+                        $("#abc").text("");
+                    }
+                    else {
+
+
+                        $("#abc").text("");
+                        $("#r1").text("");
+                        $("#select5").append('<select name="select5" id="select5">')
+
+                        for (i = 0; i <= len; i++) {
+                            var ind=i+1;
+                            var id = res[i]["id"]
+                            var batch = res[i]["from_year"]
+                            var batcht=res[i]["to_year"]
+                            $("#select5").append('<option value="'+id+'">'+batch+'-'+batcht+'</option>')
+
+                        }
+                        $("#select5").append("</select>")
+                    }
+                },
+                error:function (error) {
+
+                }
+
+
+
+            });
+
+        });
+    });
+    </script>
+
+
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_student" enctype="multipart/form-data">
+  <table width="611" height="793" border="0" >
+      <tr>
+      <td >IMAGE</td>
+      <td>
+      <input type="file" name="filefield" id="filefield" /></td>
+    </tr>
+    <tr>
+      <td>NAME</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>REGNO</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><label for="textfield3"></label>
+      <input type="date" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>GENDER</td>
+      <td><label for="textfield4"></label>
+        <input type="radio" name="radio" id="radio" value="male" />MALE<br>
+      <label for="radio">
+        <input type="radio" name="radio" id="radio2" value="female" />
+      FEMALE</label></td>
+    </tr>
+    <tr>
+      <td>HOUSE NAME</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" /></td>
+    </tr>
+    <tr>
+      <td>PIN CODE</td>
+      <td><label for="textfield8"></label>
+      <input type="text" name="textfield8" id="textfield8" /></td>
+    </tr>
+     <tr>
+      <td>STATE</td>
+      <td><label for="select"></label>
+        <select name="select" id="select">
+            <option>select</option>
+            <option value="kerala" >kerala</option>
+            <option value="thamil nadu">thamil nadu</option>
+            <option value="karnadka">karnadaka</option>
+            <option value="up">up</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>DISTRICT</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2">
+            <option>select</option>
+            <option value="malappuram">malappuram</option>
+            <option value="kozhikode">kozhikode</option>
+            <option value="vayanad">vayanad</option>
+            <option value="alapuzha">alapuzha</option>
+
+      </select></td>
+    </tr>
+      <tr>
+      <td>ADMISSION DATE</td>
+      <td><label for="textfield11"></label>
+      <input type="date" name="textfield11" id="textfield11" /></td>
+    </tr>
+    <tr>
+      <td>COURSE</td>
+      <td><label for="select3"></label>
+        <select name="select3" id="select3">
+           <option>select</option>
+            {% for i in course %}
+            <option value="{{ i['id'] }}" >{{ i['course'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+        <td>BATCH</td>
+
+        <td><label for="select5"></label>
+        <select name="select5" id="select5" >
+        <option>select</option>
+{#            {% for i in batch %}#}
+{#            <option value="{{ i['id'] }}" >{{ i['to_year'] }}-{{ i['from_year'] }}</option>#}
+{#            {% endfor %}#}
+        </select></td>
+    </tr>
+
+
+    <tr>
+      <td>MAIL ID</td>
+      <td><label for="textfield13"></label>
+      <input type="email" name="textfield13" id="textfield13" /></td>
+    </tr>
+    <tr>
+      <td>PHONE NUMBER</td>
+      <td><label for="textfield14"></label>
+      <input type="text" name="textfield14" id="textfield14" /></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" height="58"><CENTER><input type="submit" name="button" id="button" value="ADD" /></CENTER></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html></center>{% endblock %}

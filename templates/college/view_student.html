@@ -1,0 +1,102 @@
+{% extends"index-3.html" %}
+{% block body %}<br><br><br>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/view_student_post" onsubmit="return validate()" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <center><table width="900" border="0">
+    <tr>
+       <td  height="54">COURSE WISE
+        <label for="select"></label>
+        <select name="select" id="select">
+            <option>select</option>
+            {% for i in course %}
+
+            <option value="{{ i['id'] }}">{{ i['course'] }}</option>
+            {% endfor %}
+      </select></td>
+       <td >BATCH WISE
+        <label for="select2"></label>
+        <select name="select2" id="select2">
+            <option>select</option>
+            {% for i in batch %}
+            <option value="{{ i['id'] }}"{% if(data['from_year']==i['id'] and data['to_year']==i['id']) %} {% endif %}>{{ i['from_year'] }}-{{ i['to_year'] }}</option>
+            {% endfor %}
+      </select></td>
+
+    </tr>
+    <tr>
+       <td colspan="2" height="54"><center><input type="submit" name="button" id="button" value="SEARCH" /></center></td>
+
+    </tr></table></center><br><br>
+    <table width="2400" border="1">
+
+    <tr>
+      <td width="27" height="54">SL NO</td>
+      <td width="51">NAME</td>
+        <td width="51">IMAGE</td>
+      <td width="42">REG NO</td>
+      <td width="33">DOB</td>
+      <td width="69">GENDER</td>
+      <td width="62">HOUSE NAME</td>
+      <td width="44">POST</td>
+      <td width="55">PLACE</td>
+      <td width="55">PIN CODE</td>
+        <td width="79">STATE</td>
+        <td width="79">DISTRICT</td>
+      <td width="62">COURSE</td>
+      <td width="56"> BATCH
+       </td>
+      <td width="103">ADMISSION DATE</td>
+      <td width="68">MAIL ID</td>
+      <td width="66">PHONE NUMBER</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+     <td height="54">{{ loop.index }}&nbsp;</td>
+      <td>{{ i['name'] }}&nbsp;</td>
+      <td><img src="/static/student_pics/{{ i['image'] }}" width="90" height="90"></td>
+      <td>{{ i['regno'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['dob'] }}</td>
+      <td>&nbsp;{{ i['gender'] }}</td>
+      <td>&nbsp;{{ i['house_name'] }}</td>
+      <td>{{ i['post'] }}&nbsp;</td>
+      <td>{{ i['place'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['pin'] }}</td>
+      <td>&nbsp;{{ i['state'] }}</td>
+      <td>{{ i['district'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['course'] }}</td>
+      <td>{{ i['from_year'] }}-
+      {{ i['to_year'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['admission_date'] }}</td>
+         <td>&nbsp;{{ i['mail_id'] }}</td>
+         <td>&nbsp;{{ i['phone_no'] }}</td>
+
+      <td width="34"><a href="/c_edit_student/{{ i['id'] }}">EDIT</a></td>
+      <td width="94"><a href="/delete_student/{{ i['id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{#<script>#}
+{#    function validate() {#}
+{#        var crs=document.getElementById("select").value;#}
+{#        var btch=document.getElementById("select2").value;#}
+{#        alert(btch);#}
+{#        if(btch == "select" AND crs == "select"){#}
+{#            alert("NOT SELECTED");#}
+{#            return false;#}
+{#        }#}
+{#        return false;#}
+{#    }#}
+{#</script>#}
+</body>
+</html>
+
+{% endblock %}

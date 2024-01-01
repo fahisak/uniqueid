@@ -1,0 +1,47 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="1419"  border="1" style="border: solid">
+    <tr bgcolor="#5f9ea0">
+      <td height="54">SLNO</td>
+      <td>NAME</td>
+      <td>HOUSE NAME</td>
+      <td>POST</td>
+      <td>PLACE</td>
+      <td>PINCODE</td>
+      <td>DOB</td>
+      <td>GENDER</td>
+      <td>DESIGNATION</td>
+      <td>MAIL ID</td>
+      <td>PHONE NO</td>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="72">{{ loop.index }}&nbsp;</td>
+      <td>&nbsp;{{ i['U_name'] }}</td>
+      <td align="center">{{ i['house_name'] }}&nbsp;</td>
+      <td>{{ i['post'] }}&nbsp;</td>
+      <td>{{ i['place'] }}&nbsp;</td>
+      <td>{{ i['pin'] }}&nbsp;</td>
+      <td>{{ i['dob'] }}&nbsp;</td>
+      <td>{{ i['gender'] }}&nbsp;</td>
+       <td>{{ i['designation'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['mail_id'] }}</td>
+      <td>{{ i['phone_number'] }}&nbsp;</td>
+      <td><a href="/ad_edit_subadmin/{{ i['id'] }}">EDIT</a></td>
+      <td><a href="/ad_delete_subadmin/{{ i['login_id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

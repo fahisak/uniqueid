@@ -1,0 +1,30 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+<form id="form1" name="form1" method="post" action="/edit_dept_post">
+<input type="hidden" name="id" value="{{ data['id'] }}"/>
+  <table width="500" height="300"  border="0" style="border: solid;background-color: #9F9F9F">
+    <tr>
+      <td width="119" height="56">DEPARTMENT</td>
+      <td width="144"><label for="textfield"></label>
+      <input type="text" name="textfield" value="{{ data['department'] }}" id="textfield" required /></td>
+    </tr>
+{#    <tr>#}
+{#      <td>COLLAGE</td>#}
+{#      <td><label for="textfield2"></label>#}
+{#        <label for="select"></label>#}
+{#      <select name="select" id="select">#}
+{#          {% for i in data2 %}#}
+{#              <option value="{{ i['id'] }}"{% if data['college_id']==i['id'] %}selected=selected {% endif %} >{{ i['college'] }}</option>#}
+{##}
+{#          {% endfor %}#}
+{#      </select></td>#}
+{#    </tr>#}
+    <tr>
+      <td colspan="2" height="56"><center><input type="submit" name="button" id="button" value="UPDATE" /></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

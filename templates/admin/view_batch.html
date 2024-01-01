@@ -1,0 +1,36 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="919" border="1">
+    <tr bgcolor="#5f9ea0">
+      <td height="54">SL NO</td>
+      <td width="150">FROM</td>
+      <td width="150">TO</td>
+      <td width="170">COURSE</td>
+
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="60">&nbsp;{{ loop.index }}</td>
+      <td>{{ i['from_year'] }}&nbsp;</td>
+      <td>{{ i['to_year'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['course']  }}</td>
+      <td><a href="/ad_edit_batch/{{ i['id'] }}">EDIT</a></td>
+      <td><a href="/delete_batch/{{ i['id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

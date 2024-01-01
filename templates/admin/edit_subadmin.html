@@ -1,0 +1,78 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/edit_subadmin_post">
+<input type="hidden"  name="hid" value="{{ data['id'] }}">
+  <table width="611" height="643" border="0" style="border: solid;background-color: #9F9F9F">
+    <tr>
+      <td width="126">&nbsp;&nbsp;&nbsp;NAME</td>
+      <td width="89"><label for="textfield"></label>
+      <input type="text" name="textfield" value="{{ data['U_name'] }}" id="textfield"  required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;HOUSE NAME</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" value="{{ data['house_name'] }}" id="textfield2" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;POST</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" value="{{ data['post'] }}" id="textfield3" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PLACE</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4"value="{{ data['place'] }}" id="textfield4" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PIN CODE</td>
+      <td><label for="textfield9"></label>
+      <input type="text" name="textfield9" value="{{ data['pin'] }}" id="textfield9" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;DOB</td>
+      <td><label for="textfield5"></label>
+      <input type="date" name="textfield5" value="{{ data['dob'] }}" id="textfield5" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;GENDER</td>
+      <td><input type="radio" name="radio"{% if data['gender']=='male' %}checked="checked" {% endif %}
+
+       id="radio" value="male" />MALE<br>
+      <label for="radio">
+        <input type="radio" name="radio" {% if data['gender']=='female' %}checked="checked" {% endif %} id="radio2" value="female" />
+      FEMALE</label></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;DESIGNATION</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" value="{{ data['designation'] }}" id="textfield6" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PHONE NO</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" value="{{ data['phone_number'] }} "id="textfield7" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;MAIL ID</td>
+      <td><label for="textfield8"></label>
+      <input type="email" name="textfield8" value="{{ data['mail_id'] }}"id="textfield8" required/></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" height="56"><CENTER><input type="submit" name="button" id="button" value="UPDATE" /></center></td>
+    </tr>
+  </table>
+  <label for="radio"></label>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

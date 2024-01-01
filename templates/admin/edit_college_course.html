@@ -1,0 +1,31 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+<form id="form1" name="form1" method="post" action="/edit_course_college_post">
+<input type="hidden" value="{{ data2['id'] }}" name="id">
+  <table width="611" height="593" border="0" style="border: solid;background-color: #9F9F9F">
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;COLLEGE</td>
+      <td><label for="select"></label>
+        <select name="select" id="select">
+            {%  for i in clg%}
+            <option value="{{i['login_id']}}" {% if(i['login_id']==data2['login_id']) %}selected{% endif %}>{{ i['college'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;COURSE</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2">
+            {%  for j in course%}
+            <option value="{{j['id']}}" {% if(course['id']==data2['course_id']) %} selected {% endif %}>{{ j['course'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="UPDATE" /></center></td>
+    </tr>
+  </table>
+</form>
+
+</center>
+{% endblock %}

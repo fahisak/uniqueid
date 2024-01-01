@@ -1,0 +1,35 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+<form id="form1" name="form1" method="post" action="/ad_add_course_college_post">
+  <table width="511" height="193" border="0" style="background-color: #9F9F9F;border: solid">
+    <tr>
+
+      <td>&nbsp;&nbsp;&nbsp;COLLEGE</td>
+      <td><label for="select" ></label>
+        <select name="select" id="select" class="required">
+            <option>select</option>
+            {% for i in data %}
+            <option value="{{ i['id'] }}">{{ i['college'] }}</option>
+            {% endfor %}
+
+      </select></td>
+
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;COURSE</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2">
+         <option>select</option>
+            {% for i in data1 %}
+            <option value="{{ i['id'] }}">{{ i['course'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><input type="submit" name="button" id="button" value="ADD" /></center></td>
+    </tr>
+  </table>
+</form>
+
+</center>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends"index-3.html" %}
+{% block body %}<br><br><br>
+<center><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/edit_student"enctype="multipart/form-data">
+<input type="hidden" value="{{ std['id'] }}" name="id">
+  <table width="200" border="0">
+      <tr>
+      <td>IMAGE</td>
+      <td>
+       <img src="/static/student_pics/{{ std['image'] }}" width="90" height="90"/>
+
+      <input type="file" name="pic" id="filefield"  /></td>
+
+    </tr>
+    <tr>
+      <td>NAME</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" value="{{ std['name'] }}" /></td>
+    </tr>
+    <tr>
+      <td>REGNO</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" value="{{ std['regno'] }}" /></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" value="{{ std['dob'] }}" /></td>
+    </tr>
+    <tr>
+      <td>GENDER</td>
+      <td><input type="radio" name="radio" id="radio" value="male" {% if(std['gender']=="male") %} checked{% endif %} />
+      <label for="radio">MALE<br />
+        <input type="radio" name="radio" id="radio2" value="female" {% if(std['gender']=="female") %} checked{% endif %} />
+      FEMALE</label></td>
+    </tr>
+    <tr>
+      <td>HOUSE NAME</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" value="{{ std['house_name'] }}" /></td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" value="{{ std['post'] }}" /></td>
+    </tr>
+    <tr>
+      <td>PLACE</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" value="{{ std['place'] }}" /></td>
+    </tr>
+    <tr>
+      <td>PIN CODE</td>
+      <td><label for="textfield7"></label>
+      <input type="text" name="textfield7" id="textfield7" value="{{ std['pin'] }}" /></td>
+    </tr>
+       <tr>
+      <td>STATE</td>
+      <td><label for="select"></label>
+        <select name="select" id="select">
+            <option value="kerala"{% if(std['state']=="kerala") %} selected {% endif %}>kerala</option>
+            <option value="thamil nadu">thamil nadu</option>
+            <option value="karnadka">karnadaka</option>
+            <option value="up">up</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>DISTRICT</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2">
+            <option value="malappuram"{% if(std['district']=="malappuram") %} selected {% endif %}>malappuram</option>
+            <option value="kozhikode">kozhikode</option>
+            <option value="vayanad">vayanad</option>
+            <option value="alapuzha">alapuzha</option>
+
+      </select></td>
+    </tr>
+   <tr>
+      <td>COURSE</td>
+      <td><label for="select3"></label>
+        <select name="select3" id="select3">
+          print(data)
+            {% for j in data %}
+            <option value="{{ j['id'] }}" {% if(std['course']==j['id']) %} selected="selected" {% endif %} >{{ j['course'] }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>BATCH<td>
+      <label for="select4"  ></label>
+        <select name="select4"  id="select4">
+            {% for i in batch %}
+            <option value="{{ i['id'] }}"{% if(std['batch']==i['id']) %} selected {% endif %}   >{{ i['from_year'] }}-{{ i['to_year'] }}</option>
+            {% endfor %}
+        </select>
+    <!--TO <label for="select5"></label>
+        <select name="select5" id="select5" >
+{#            {% for i in batch %}#}
+{#            <option value="{{ i['id'] }}" {% if(i['id']==std['to_year']) %} selected {% endif %}   >{{ i['to_year'] }}</option>#}
+{#            {% endfor %}#}
+        </select></td></td>
+    </tr>-->
+
+    <tr>
+      <td>ADMISSION DATE</td>
+      <td><label for="textfield10"></label>
+      <input type="date" name="textfield10" id="textfield10" value="{{ std['admission_date'] }}" /></td>
+    </tr>
+
+
+    <tr>
+      <td>MAIL ID</td>
+      <td><label for="textfield12"></label>
+      <input type="text" name="textfield12" id="textfield12"  value="{{ std['mail_id'] }}" readonly="readonly"/></td>
+    </tr>
+    <tr>
+      <td>PHONE NUMBER</td>
+      <td><label for="textfield13"></label>
+      <input type="text" name="textfield13" id="textfield13" value="{{ std['phone_no'] }}" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><CENTER><input type="submit" name="button" id="button" value="UPDATE" /></CENTER></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

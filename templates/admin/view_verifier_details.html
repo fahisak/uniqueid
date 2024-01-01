@@ -1,0 +1,49 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="1419"  border="0">
+    <tr bgcolor="#5f9ea0">
+      <td height="54">SL NO</td>
+      <td>NAME</td>
+      <td>DOB</td>
+      <td>GENDER</td>
+      <td>HOUSE NAME</td>
+      <td>POST</td>
+      <td>PIN CODE</td>
+
+        <td>PLACE</td>
+         <td>DISTRICT</td>
+         <td>EMAIL</td>
+      <td>PHONE NUMBER</td>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="72">{{ loop.index }}&nbsp;</td>
+      <td>{{ i['name'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['dob'] }}</td>
+      <td>{{ i['gender'] }}&nbsp;</td>
+      <td>{{ i['house_name'] }}&nbsp;</td>
+      <td>{{ i['post'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['pincode'] }}</td>
+      <td>&nbsp;{{ i['place'] }}</td>
+      <td>&nbsp;{{ i['district'] }}</td>
+        <td>{{ i['mail_id'] }}&nbsp;</td>
+        <td>{{ i['phone_no'] }}&nbsp;</td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><center>
+<form id="form1" name="form1" method="post" action="">
+
+
+  <table width="1419"  border="1" style="border:solid">
+
+{#  <tr>#}
+{#       <td colspan="3"><label  for="textfield"></label>#}
+{#      <input  type="text" name="textfield" id="textfield" /></td>#}
+{#       <td colspan="9"><input type="submit" name="button" id="button" value="SEARCH" /></td></td>#}
+{##}
+{#    </tr>#}
+    <tr bgcolor="#5f9ea0">
+      <td height="54" width="42">SLNO</td>
+      <td width="70">COLLEGE</td>
+{#      <td width="43">STATE</td>#}
+      <td width="64">DISTRICT</td>
+      <td width="40">PLACE</td>
+      <td width="39">POST</td>
+      <td width="43">PIN CODE</td>
+      <td width="47">MAIL ID</td>
+      <td width="64">PHONE NO</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="60">{{ loop.index }}&nbsp;</td>
+      <td>&nbsp;{{i['college'] }}</td>
+{#      <td>{{ i['state'] }}&nbsp;</td>#}
+      <td>{{ i['district'] }}&nbsp;</td>
+      <td>{{ i['place'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['post'] }}</td>
+      <td>&nbsp;{{ i['pincode'] }}</td>
+      <td>{{ i['mail_id'] }}&nbsp;</td>
+      <td>{{ i['phone_no'] }}&nbsp;</td>
+      <td width="34"><a href="/ad_edit_college/{{ i['login_id'] }}">EDIT</a></td>
+      <td width="59"><a href="/ad_delete_college/{{ i['login_id'] }}">DELETE</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form></center>
+</body>
+</html>
+{% endblock %}

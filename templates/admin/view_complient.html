@@ -1,0 +1,36 @@
+{% extends"index-1.html" %}
+{% block body %}<br><br><br><center>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="1100" border="0">
+    <tr bgcolor="#5f9ea0">
+      <td height="54" width="31">SL NO</td>
+      <td width="81">USER INFO</td>
+      <td width="38">DATE</td>
+      <td width="137">COMPLIENT</td>
+        <td width="137">STATUS</td>
+      <td width="102">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td height="60">{{ loop.index }}&nbsp;</td>
+      <td>{{ i['type'] }}&nbsp;</td>
+      <td>{{ i['comp_date'] }}&nbsp;</td>
+      <td>{{ i['complient'] }}&nbsp;</td>
+        <td>{{ i['status'] }}&nbsp;</td>
+      <td><a href="/ad_sent_complient_replay/{{ i['id'] }}">SENT REPLAY</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+</center>
+{% endblock %}

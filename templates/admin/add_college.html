@@ -1,0 +1,66 @@
+
+{% extends"index-1.html" %}
+{% block body %}<br><br><br>
+<center>
+<form id="form1" name="form1" method="post" action="/ad_add_college">
+  <table width="611" height="593" border="0" style=" border: solid;background-color: #9F9F9F ">
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;COLLEGE</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required="required" /></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;DISTRICT</td>
+      <td><label for="select2"></label>
+        <select name="select2" id="select2" required>
+            <option>select </option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kozhikode">Kozhikode</option>
+            <option value="Vayanad">Vayanad</option>
+            <option value="Alapuzha">Alapuzha</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Kasar code">Kasar code</option>
+            <option value="Thiruvanathapuram">Thiruvanathapuram</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Eranakulam">Eranakulam</option>
+             <option value="Kannur">Kannur</option>
+             <option value="Kottayam">Kottayam</option>
+             <option value="Pathanumthitta">pathanumthitta</option>
+             <option value="Thrissur">Thrissur</option>
+             <option value="Kollam">Kollam</option>
+
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PLACE</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;POST</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3"required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PIN CODE</td>
+      <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;MAIL ID </td>
+      <td><label for="textfield5"></label>
+      <input type="email" name="textfield5" id="textfield5" required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;PHONE NO</td>
+      <td><label for="textfield6"></label>
+      <input type="text" name="textfield6" id="textfield6" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><CENTER><input type="submit" name="button" id="button" value="ADD" /></center></td>
+    </tr>
+  </table>
+</form></center>
+{% endblock %}
